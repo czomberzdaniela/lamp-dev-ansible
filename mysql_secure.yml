@@ -1,0 +1,9 @@
+---
+##
+# MySQL database setup, this does the equivalent of mysql_secure_installation.
+#
+- name: MySQL | Set the root password
+  mysql_user: user=root password={{ mysql_root_password }} host=localhost
+
+- name: MySQL | Config for access as root user
+  template: src=templates/root-my-cnf.j2 dest=/root/.my.cnf

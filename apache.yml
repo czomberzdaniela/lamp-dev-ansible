@@ -1,0 +1,12 @@
+---
+- hosts: web
+  sudo: yes
+  tasks:
+    - name: Installs apache web server
+      apt: pkg=apache2 state=installed update_cache=true
+
+    - name: Install php5
+      apt: pkg=php5 state=installed
+
+    - name: Install libapache2-mod-php5
+      apt: pkg=libapache2-mod-php5 state=installed

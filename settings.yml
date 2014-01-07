@@ -1,0 +1,11 @@
+
+#php.ini
+php_display_errors: 'On'
+php_display_startup_errors: 'On'
+php_html_errors: 'On'
+php_date_timezone: 'Europe/Warsaw'
+php_error_reporting: 'E_ALL | E_STRICT'
+
+
+#my.cnf
+mysql_root_password: koronaluk

@@ -1,0 +1,24 @@
+---
+
+
+- name: PHP | PHP dev | install php development packages
+  apt: pkg=$item state=installed
+  with_items:
+  - php-pear
+
+
+# PEAR Packages
+# #############
+- name: PHP | PHP dev | update PEAR packages
+  command: pear upgrade
+
+- name: PHP | PHP dev | Set peatr auto-discover
+  command: pear config-set auto_discover 1
+
+- name: PHP | PHP dev | Pear install the PHP QA Toolchain
+  command: pear install pear.phpqatools.org/phpqatools creates=/usr/bin/phpunit
+
+- name: PHP | PHP dev | Install composer
+  shell: curl -sS https://getcomposer.org/installer | /usr/bin/php && /bin/mv -f /home/vagrant/composer.phar /usr/local/bin/composer
+                      creates=/usr/local/bin/composer
+
